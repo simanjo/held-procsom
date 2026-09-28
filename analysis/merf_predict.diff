@@ -1,0 +1,13 @@
+--- merf.py	2026-09-28 11:03:42.398726723 +0100
++++ merf.py	2026-09-20 13:36:56.632939910 +0100
+@@ -11,8 +11,8 @@
+     Returns:
+         np.ndarray: the predictions y_hat
+     """
+-    if type(clusters) != pd.Series:
+-        raise TypeError("clusters must be a pandas Series.")
++    # if type(clusters) != pd.Series:
++    #     raise TypeError("clusters must be a pandas Series.")
+ 
+     if self.trained_fe_model is None:
+         raise NotFittedError(
