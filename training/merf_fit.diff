@@ -1,0 +1,29 @@
+--- merf.py	2026-09-28 11:03:42.398726723 +0100
++++ merf.py	2026-09-20 13:36:56.632939910 +0100
+@@ -23,8 +23,8 @@
+     """
+ 
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Input Checks ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-    if type(clusters) != pd.Series:
+-        raise TypeError("clusters must be a pandas Series.")
++    # if type(clusters) != pd.Series:
++    #     raise TypeError("clusters must be a pandas Series.")
+ 
+     assert len(Z) == len(X)
+     assert len(y) == len(X)
+@@ -40,13 +40,13 @@
+         assert len(y_val) == len(X_val)
+ 
+     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Initialization ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-    n_clusters = clusters.nunique()
++    n_clusters = pd.Series(clusters).nunique()
+     n_obs = len(y)
+     q = Z.shape[1]  # random effects dimension
+     Z = np.array(Z)  # cast Z to numpy array (required if it's a dataframe, otw, the matrix mults later fail)
+ 
+     # Create a series where cluster_id is the index and n_i is the value
+-    self.cluster_counts = clusters.value_counts()
++    self.cluster_counts = pd.Series(clusters).value_counts()
+ 
+     # Do expensive slicing operations only once
+     Z_by_cluster = {}
