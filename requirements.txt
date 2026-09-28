@@ -1,0 +1,17 @@
+pandas
+scipy
+matplotlib
+seaborn
+statsmodels
+
+requests
+rdkit
+mol2vec
+gensim
+pubchempy
+merf
+
+scikit-learn==1.7.0
+
+ipykernel
+jupyter
